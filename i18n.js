@@ -27,7 +27,7 @@ window.VAYNO_I18N = {
         "meta.description": {
             en: "VAYNO is an independent creative and digital agency rooted in Kurdistan, building thoughtful brands, websites, and software for what comes next.",
             ar: "VAYNO وكالة إبداعية ورقمية مستقلة متجذّرة في كوردستان، تبني علامات تجارية ومواقع وبرمجيات مدروسة لما هو قادم.",
-            ckb: "VAYNO ئاژانسێکی داهێنەرانە و دیجیتاڵیی سەربەخۆیە کە ڕەگی لە کوردستانە، براند و ماڵپەڕ و نەرمەکاڵای ورد بۆ داهاتوو دروست دەکات."
+            ckb: "VAYNO ئاژانسێکی داهێنەرانە و دیجیتاڵیی سەربەخۆیە کە ڕەگی لە کوردستانە، براند و ماڵپەڕ و سۆفتوێری ورد بۆ داهاتوو دروست دەکات."
         },
         "loader.aria": { ar: "جارٍ تحميل VAYNO", ckb: "VAYNO بار دەکرێت" },
         "loader.tag": { ar: "متجذّرون في كوردستان", ckb: "ڕەگمان لە کوردستانە" },
@@ -57,7 +57,7 @@ window.VAYNO_I18N = {
         "hero.sr": {
             en: "VAYNO builds websites, web apps, online stores, software and brands.",
             ar: "تبني VAYNO المواقع وتطبيقات الويب والمتاجر الإلكترونية والبرمجيات والهويات البصرية.",
-            ckb: "VAYNO ماڵپەڕ، ئەپی وێب، فرۆشگای ئۆنلاین، نەرمەکاڵا و براند دروست دەکات."
+            ckb: "VAYNO ماڵپەڕ، ئەپی وێب، فرۆشگای ئۆنلاین، سۆفتوێر و براند دروست دەکات."
         },
         // The typing headline. {word} marks where the changing word sits, so
         // each language keeps its own word order (Kurdish puts the verb last).
@@ -65,7 +65,7 @@ window.VAYNO_I18N = {
         "hero.words": {
             en: "websites|web apps|online stores|software|brands",
             ar: "مواقع|تطبيقات ويب|متاجر إلكترونية|برمجيات|هويات بصرية",
-            ckb: "ماڵپەڕ|ئەپی وێب|فرۆشگای ئۆنلاین|نەرمەکاڵا|براند"
+            ckb: "ماڵپەڕ|ئەپی وێب|فرۆشگای ئۆنلاین|سۆفتوێر|براند"
         },
         "hero.lede": {
             ar: "الأفكار العظيمة تستحق شكلاً يليق بها. نمنح فكرتك غايةً ودقةً ومكاناً في العالم.",
@@ -120,11 +120,11 @@ window.VAYNO_I18N = {
         "services.link": { ar: "لست متأكدًا أيّها تحتاج؟ لنتحدّث", ckb: "نازانیت کامیانت پێویستە؟ با قسە بکەین" },
         "services.aria": { ar: "خدمات VAYNO", ckb: "خزمەتگوزارییەکانی VAYNO" },
 
-        "service.1.title": { en: "Software Development", ar: "تطوير البرمجيات", ckb: "گەشەپێدانی نەرمەکاڵا" },
+        "service.1.title": { en: "Software Development", ar: "تطوير البرمجيات", ckb: "گەشەپێدانی سۆفتوێر" },
         "service.1.copy": {
             en: "Custom software, web applications, business systems, and digital products.",
             ar: "برمجيات مخصّصة وتطبيقات ويب وأنظمة أعمال ومنتجات رقمية.",
-            ckb: "نەرمەکاڵای تایبەت، ئەپی وێب، سیستەمی بازرگانی و بەرهەمی دیجیتاڵ."
+            ckb: "سۆفتوێری تایبەت، ئەپی وێب، سیستەمی بازرگانی و بەرهەمی دیجیتاڵ."
         },
         "service.1.tag": { en: "BUILD", ar: "بناء", ckb: "دروستکردن" },
         "service.2.title": { en: "AI Development", ar: "تطوير الذكاء الاصطناعي", ckb: "گەشەپێدانی زیرەکیی دەستکرد" },
@@ -228,7 +228,7 @@ window.VAYNO_I18N = {
         "form.type": { ar: "نوع المشروع <span>*</span>", ckb: "جۆری پرۆژە <span>*</span>" },
         "form.type.choose": { ar: "اختر نوع المشروع", ckb: "جۆری پرۆژە هەڵبژێرە" },
         "form.type.website": { ar: "تطوير المواقع", ckb: "گەشەپێدانی ماڵپەڕ" },
-        "form.type.software": { ar: "تطوير البرمجيات", ckb: "گەشەپێدانی نەرمەکاڵا" },
+        "form.type.software": { ar: "تطوير البرمجيات", ckb: "گەشەپێدانی سۆفتوێر" },
         "form.type.ai": { ar: "تطوير الذكاء الاصطناعي", ckb: "گەشەپێدانی زیرەکیی دەستکرد" },
         "form.type.uiux": { ar: "تصميم UI/UX", ckb: "دیزاینی UI/UX" },
         "form.type.graphic": { ar: "التصميم الجرافيكي", ckb: "دیزاینی گرافیک" },
@@ -273,15 +273,11 @@ window.VAYNO_I18N = {
             ar: "يمكنني مساعدتك في العثور على خدمة VAYNO المناسبة والخطوة التالية. ولمحادثة مخصّصة، أرسل ملاحظة عن مشروعك إلى فريقنا.",
             ckb: "دەتوانم یارمەتیت بدەم خزمەتگوزاریی گونجاوی VAYNO و هەنگاوی دواتر بدۆزیتەوە. بۆ گفتوگۆیەکی تایبەت، تێبینییەک دەربارەی پرۆژەکەت بۆ تیمەکەمان بنێرە."
         },
-        "guide.hello": {
-            ar: "مرحبًا، أنا دليل مشاريع VAYNO. ماذا تودّ أن تصنع؟",
-            ckb: "سڵاو، من ڕێبەری پرۆژەی VAYNO م. دەتەوێت چی دروست بکەیت؟"
-        },
         "guide.suggestions": { ar: "أسئلة مقترحة", ckb: "پرسیاری پێشنیارکراو" },
         "guide.s1": { ar: "موقع إلكتروني", ckb: "ماڵپەڕ" },
         "guide.s1.prompt": { ar: "أحتاج إلى موقع إلكتروني", ckb: "پێویستم بە ماڵپەڕێکە" },
-        "guide.s2": { ar: "برمجيات مخصّصة", ckb: "نەرمەکاڵای تایبەت" },
-        "guide.s2.prompt": { ar: "أريد بناء برنامج", ckb: "دەمەوێت نەرمەکاڵایەک دروست بکەم" },
+        "guide.s2": { ar: "برمجيات مخصّصة", ckb: "سۆفتوێری تایبەت" },
+        "guide.s2.prompt": { ar: "أريد بناء برنامج", ckb: "دەمەوێت سۆفتوێرێک دروست بکەم" },
         "guide.s3": { ar: "حل بالذكاء الاصطناعي", ckb: "چارەسەری زیرەکیی دەستکرد" },
         "guide.s3.prompt": { ar: "أحتاج مساعدة في الذكاء الاصطناعي", ckb: "یارمەتیم دەوێت لە زیرەکیی دەستکرددا" },
         "guide.s4": { ar: "هوية علامة تجارية", ckb: "ناسنامەی براند" },
@@ -313,7 +309,7 @@ window.VAYNO_I18N = {
         "guide.reply.software": {
             en: "Software Development covers custom applications, business systems, and digital products. If the project also needs automation or AI, those can be explored together.",
             ar: "يشمل تطوير البرمجيات التطبيقات المخصّصة وأنظمة الأعمال والمنتجات الرقمية. وإذا احتاج المشروع أيضًا إلى أتمتة أو ذكاء اصطناعي، يمكن استكشافهما معًا.",
-            ckb: "گەشەپێدانی نەرمەکاڵا ئەپی تایبەت، سیستەمی بازرگانی و بەرهەمی دیجیتاڵ دەگرێتەوە. ئەگەر پرۆژەکە پێویستی بە ئۆتۆماتیک یان زیرەکیی دەستکردیش بێت، دەتوانین پێکەوە لێیان بکۆڵینەوە."
+            ckb: "گەشەپێدانی سۆفتوێر ئەپی تایبەت، سیستەمی بازرگانی و بەرهەمی دیجیتاڵ دەگرێتەوە. ئەگەر پرۆژەکە پێویستی بە ئۆتۆماتیک یان زیرەکیی دەستکردیش بێت، دەتوانین پێکەوە لێیان بکۆڵینەوە."
         },
         "guide.reply.brand": {
             en: "Graphic Design is a good match for brand identity, visual systems, and campaign assets. For a larger brand direction, mention that in your project note.",
@@ -449,19 +445,19 @@ window.VAYNO_I18N = {
 
         // Team
         "Developer": { ar: "مطوّر", ckb: "گەشەپێدەر" },
-        "Software engineering student and freelance developer and graphic designer, exploring technology and creativity one project at a time.": {
-            ar: "طالب هندسة برمجيات ومطوّر ومصمّم جرافيك مستقل، يستكشف التقنية والإبداع مشروعًا بعد مشروع.",
-            ckb: "خوێندکاری ئەندازیاری نەرمەکاڵا و گەشەپێدەر و دیزاینەری گرافیکی سەربەخۆ، کە پرۆژە بە پرۆژە تەکنەلۆژیا و داهێنان دەدۆزێتەوە."
+        "Freelance developer and graphic designer with more than two years of building. He brings code and visual design together, turning ideas into working software, graphics and digital content, and gets sharper with every project.": {
+            ar: "مطوّر ومصمّم جرافيك مستقل بخبرة تزيد على سنتين في البناء. يجمع البرمجة بالتصميم البصري، فيحوّل الأفكار إلى برمجيات تعمل ورسومات ومحتوى رقمي، ويزداد إتقانًا مع كل مشروع.",
+            ckb: "گەشەپێدەر و دیزاینەری گرافیکی سەربەخۆ بە زیاتر لە دوو ساڵ ئەزموون. کۆد و دیزاینی بینراو پێکەوە دەبەستێت و بیرۆکەکان دەکاتە سۆفتوێری کارا، گرافیک و ناوەڕۆکی دیجیتاڵ، و لەگەڵ هەر پرۆژەیەک شارەزاتر دەبێت."
         },
         "Designer & Videographer": { ar: "مصمّم ومصوّر فيديو", ckb: "دیزاینەر و ڤیدیۆگرافەر" },
-        "Filmmaker and photographer in Erbil since 2022: automotive films, events and brand stories, plus graphic design, from the first idea to the final edit.": {
-            ar: "صانع أفلام ومصوّر في أربيل منذ عام ٢٠٢٢: أفلام السيارات والفعاليات وقصص العلامات التجارية، إلى جانب التصميم الجرافيكي، من الفكرة الأولى حتى المونتاج النهائي.",
-            ckb: "فیلمساز و وێنەگرە لە هەولێر لە ساڵی ٢٠٢٢ەوە: فیلمی ئۆتۆمبێل، بۆنەکان و چیرۆکی براند، لەگەڵ دیزاینی گرافیک، لە یەکەم بیرۆکەوە تا مۆنتاژی کۆتایی."
+        "Filmmaker and photographer in Erbil since 2022. At an AMG Performance dealership he averaged four finished car videos a day, and he has led content for brands, events and schools, from the first idea to the final edit.": {
+            ar: "صانع أفلام ومصوّر في أربيل منذ عام ٢٠٢٢. أنجز في وكالة AMG Performance أربعة فيديوهات سيارات مكتملة يوميًا في المتوسط، وقاد المحتوى لعلامات تجارية وفعاليات ومدارس، من الفكرة الأولى حتى المونتاج النهائي.",
+            ckb: "فیلمساز و وێنەگرە لە هەولێر لە ساڵی ٢٠٢٢ەوە. لە نوێنەرایەتیی AMG Performance بە تێکڕا ڕۆژانە چوار ڤیدیۆی تەواوی ئۆتۆمبێلی ئامادە دەکرد، و ناوەڕۆکی بۆ براند و بۆنە و قوتابخانەکان بەڕێوە بردووە، لە یەکەم بیرۆکەوە تا مۆنتاژی کۆتایی."
         },
         "Founder & Developer": { ar: "المؤسس والمطوّر", ckb: "دامەزرێنەر و گەشەپێدەر" },
-        "Founder of Shax Store and software engineering student at Salahaddin University. He leads products from idea to launch, building fast, secure full-stack websites with AI workflows he engineers himself.": {
-            ar: "مؤسس Shax Store وطالب هندسة برمجيات في جامعة صلاح الدين. يقود المنتجات من الفكرة إلى الإطلاق، ويبني مواقع متكاملة سريعة وآمنة بسير عمل ذكاء اصطناعي يصمّمه بنفسه.",
-            ckb: "دامەزرێنەری Shax Store و خوێندکاری ئەندازیاری نەرمەکاڵا لە زانکۆی سەڵاحەددین. بەرهەمەکان لە بیرۆکەوە تا بڵاوکردنەوە بەڕێوە دەبات و ماڵپەڕی فول-ستاکی خێرا و پارێزراو دروست دەکات بە ڕێگاکانی کاری زیرەکی دەستکرد کە خۆی دایاندەڕێژێت."
+        "Founder and lead developer of Shax Store, with more than two years of shipping software. He leads products from idea to launch: fast, secure full-stack websites, AI workflows he engineers himself, and the design and video that give them their look.": {
+            ar: "مؤسس Shax Store ومطوّرها الرئيسي، بخبرة تزيد على سنتين في إطلاق البرمجيات. يقود المنتجات من الفكرة إلى الإطلاق: مواقع متكاملة سريعة وآمنة، وسير عمل بالذكاء الاصطناعي يصمّمه بنفسه، والتصميم والفيديو اللذان يمنحانها هويتها.",
+            ckb: "دامەزرێنەر و گەشەپێدەری سەرەکیی Shax Store، بە زیاتر لە دوو ساڵ ئەزموون لە دروستکردن و بڵاوکردنەوەی سۆفتوێر. بەرهەمەکان لە بیرۆکەوە تا بڵاوکردنەوە بەڕێوە دەبات: ماڵپەڕی فول-ستاکی خێرا و پارێزراو، ڕێگاکانی کاری زیرەکی دەستکرد کە خۆی دایاندەڕێژێت، و ئەو دیزاین و ڤیدیۆیەی ناسنامەیان پێدەبەخشێت."
         }
     }
 };

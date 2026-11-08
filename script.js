@@ -1046,26 +1046,27 @@
                 openedAt = Date.now();
                 walker?.pause();
                 placePanel();
-                window.setTimeout(() => input.focus(), 0);
+                window.setTimeout(() => panel.focus({ preventScroll: true }), 0);
             } else {
                 walker?.resume();
                 if (restoreFocus) trigger.focus();
             }
         };
 
-        const addMessage = (text, sender, destination) => {
+        const addMessage = (text, sender) => {
             const message = document.createElement("div");
             message.className = `assistant-message assistant-message-${sender}`;
             message.textContent = text;
-            if (destination) {
-                const link = document.createElement("a");
-                link.className = "assistant-reply-link";
-                link.href = destination;
-                link.textContent = destination === "#services" ? t("guide.link.services") : t("guide.link.contact");
-                message.append(link);
-            }
             messages.append(message);
             messages.scrollTop = messages.scrollHeight;
+            return message;
+        };
+        const addLink = (message, destination) => {
+            const link = document.createElement("a");
+            link.className = "assistant-reply-link";
+            link.href = destination;
+            link.textContent = destination === "#services" ? t("guide.link.services") : t("guide.link.contact");
+            message.append(link);
         };
 
         // Each topic lists the English, Arabic and Kurdish words that point to it;
@@ -1074,7 +1075,7 @@
             { reply: "guide.reply.price", to: "#contact", en: /\b(price|pricing|budget|cost|quote|how much)\b/, local: /سعر|أسعار|اسعار|تكلفة|كلفة|ميزانية|بكم|نرخ|تێچوو|بودجە|پارە|چەندە/ },
             { reply: "guide.reply.ai", to: "#services", en: /\b(ai|artificial intelligence|machine learning|automation|automate)\b/, local: /ذكاء|اصطناعي|أتمتة|اتمتة|زیرەکی|دەستکرد|ئۆتۆماتیک/ },
             { reply: "guide.reply.web", to: "#services", en: /\b(website|web|site|application|app|landing page|e-commerce|ecommerce)\b/, local: /موقع|مواقع|ويب|تطبيق|متجر|ماڵپەڕ|وێب|ئەپ|فرۆشگا/ },
-            { reply: "guide.reply.software", to: "#services", en: /\b(software|system|platform|dashboard|tool|product|workflow)\b/, local: /برمجيات|برمجية|برنامج|نظام|أنظمة|منصة|لوحة تحكم|نەرمەکاڵا|سیستەم|پلاتفۆرم|بەرنامە|داشبۆرد/ },
+            { reply: "guide.reply.software", to: "#services", en: /\b(software|system|platform|dashboard|tool|product|workflow)\b/, local: /برمجيات|برمجية|برنامج|نظام|أنظمة|منصة|لوحة تحكم|سۆفتوێر|نەرمەکاڵا|سیستەم|پلاتفۆرم|بەرنامە|داشبۆرد/ },
             { reply: "guide.reply.brand", to: "#services", en: /\b(brand|branding|identity|logo|graphic|visual)\b/, local: /علامة|هوية|شعار|جرافيك|غرافيك|براند|ناسنامە|لۆگۆ|لوگۆ|گرافیک/ },
             { reply: "guide.reply.uiux", to: "#services", en: /\b(ui|ux|interface|user experience|prototype|research|design)\b/, local: /واجهة|تجربة المستخدم|نموذج أولي|تصميم|ڕووکار|بەکارهێنەر|دیزاین/ },
             { reply: "guide.reply.motion", to: "#services", en: /\b(motion|animation|video|film|moving)\b/, local: /موشن|حركة|رسوم متحركة|أنيميشن|انيميشن|فيديو|جووڵە|ئەنیمەیشن|ڤیدیۆ/ }
@@ -1087,16 +1088,63 @@
                 : { text: t("guide.reply.default"), destination: "#contact" };
         };
 
+        // The guide says nothing until asked. Then it shows that it is typing,
+        // writes the answer out, and offers the next step. Screen readers get
+        // the whole answer at once; the letters appearing are only for show.
+        const suggestions = panel.querySelector(".assistant-suggestions");
+        let answering = false;
         const sendMessage = (text) => {
             const question = text.trim();
-            if (!question) return;
+            if (!question || answering) return;
+            answering = true;
+            suggestions?.classList.add("is-busy");
             addMessage(question, "user");
-            const response = findResponse(question);
-            addMessage(response.text, "guide", response.destination);
-            // The robot "speaks" the answer for roughly as long as it takes to read.
-            setMood("is-talking", Math.min(3400, 900 + response.text.length * 16));
             input.value = "";
-            input.focus();
+            const response = findResponse(question);
+            const message = addMessage("", "guide");
+            const dots = document.createElement("span");
+            dots.className = "assistant-typing";
+            dots.setAttribute("aria-hidden", "true");
+            dots.append(document.createElement("i"), document.createElement("i"), document.createElement("i"));
+            message.append(dots);
+            messages.scrollTop = messages.scrollHeight;
+            const quick = reducedMotion.matches;
+            const thinking = quick ? 300 : Math.min(1700, 750 + response.text.length * 6);
+            setMood("is-talking", thinking + Math.min(2600, response.text.length * 18));
+            window.setTimeout(() => {
+                const spoken = document.createElement("span");
+                spoken.className = "sr-only";
+                spoken.textContent = response.text;
+                const words = document.createElement("span");
+                words.className = "assistant-words";
+                words.setAttribute("aria-hidden", "true");
+                message.replaceChildren(spoken, words);
+                message.classList.add("is-writing");
+                const letters = Array.from(response.text);
+                // Long answers write faster, so none takes much more than two seconds.
+                const perStep = Math.max(1, Math.ceil(letters.length / 120));
+                let shown = 0;
+                const finish = () => {
+                    message.classList.remove("is-writing");
+                    addLink(message, response.destination);
+                    messages.scrollTop = messages.scrollHeight;
+                    answering = false;
+                    suggestions?.classList.remove("is-busy");
+                };
+                const write = () => {
+                    shown = Math.min(letters.length, shown + perStep);
+                    words.textContent = letters.slice(0, shown).join("");
+                    messages.scrollTop = messages.scrollHeight;
+                    if (shown < letters.length) window.setTimeout(write, 17);
+                    else finish();
+                };
+                if (quick) {
+                    words.textContent = response.text;
+                    finish();
+                } else {
+                    write();
+                }
+            }, thinking);
         };
 
         trigger.addEventListener("click", () => setOpen(panel.hidden, panel.hidden));

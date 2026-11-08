@@ -459,9 +459,9 @@ window.VAYNO_I18N = {
             ckb: "فیلمساز و وێنەگرە لە هەولێر لە ساڵی ٢٠٢٢ەوە: فیلمی ئۆتۆمبێل، بۆنەکان و چیرۆکی براند، لەگەڵ دیزاینی گرافیک، لە یەکەم بیرۆکەوە تا مۆنتاژی کۆتایی."
         },
         "Founder & Developer": { ar: "المؤسس والمطوّر", ckb: "دامەزرێنەر و گەشەپێدەر" },
-        "Software engineering student building fast, secure full-stack web apps with AI-powered development, plus graphic design and video editing.": {
-            ar: "طالب هندسة برمجيات يبني تطبيقات ويب متكاملة سريعة وآمنة بتطوير مدعوم بالذكاء الاصطناعي، إلى جانب التصميم الجرافيكي ومونتاج الفيديو.",
-            ckb: "خوێندکاری ئەندازیاری نەرمەکاڵا، ئەپی وێبی فول-ستاکی خێرا و پارێزراو دروست دەکات بە گەشەپێدانی پاڵپشتیکراو بە زیرەکی دەستکرد، لەگەڵ دیزاینی گرافیک و مۆنتاژی ڤیدیۆ."
+        "Founder of Shax Store and software engineering student at Salahaddin University. He leads products from idea to launch, building fast, secure full-stack websites with AI workflows he engineers himself.": {
+            ar: "مؤسس Shax Store وطالب هندسة برمجيات في جامعة صلاح الدين. يقود المنتجات من الفكرة إلى الإطلاق، ويبني مواقع متكاملة سريعة وآمنة بسير عمل ذكاء اصطناعي يصمّمه بنفسه.",
+            ckb: "دامەزرێنەری Shax Store و خوێندکاری ئەندازیاری نەرمەکاڵا لە زانکۆی سەڵاحەددین. بەرهەمەکان لە بیرۆکەوە تا بڵاوکردنەوە بەڕێوە دەبات و ماڵپەڕی فول-ستاکی خێرا و پارێزراو دروست دەکات بە ڕێگاکانی کاری زیرەکی دەستکرد کە خۆی دایاندەڕێژێت."
         }
     }
 };

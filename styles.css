@@ -3093,3 +3093,14 @@ html[dir="rtl"] :is(.services-link > span, .project-link, .case-study-visit) { b
     .hero-link, .hero-link:hover { background: linear-gradient(rgba(4, 40, 27, .62), rgba(4, 40, 27, .62)) padding-box, conic-gradient(from var(--spin), rgba(255, 255, 255, .4) 0deg 190deg, var(--mint) 250deg, #ffffff 278deg, var(--mint) 306deg, rgba(255, 255, 255, .4) 360deg) border-box; }
     .dock-btn::after, .hero-orb::before { animation: none; }
 }
+
+/* ---- Projects on phones: the discs stack and the slide scrolls down ----
+   On computers they stay in a row that scrolls sideways. */
+@media (max-width: 760px) {
+    #journey .projects.journey-panel { display: block; overflow-y: auto; overscroll-behavior-y: contain; padding-bottom: 150px; scrollbar-width: none; }
+    #journey .projects .project-track-viewport { overflow: visible; margin-inline: 0; padding-inline: 0; scroll-snap-type: none; }
+    #journey .projects .project-track { width: 100%; min-width: 0; }
+    #journey .projects .project-track-group { width: 100%; flex-direction: column; align-items: center; gap: 22px; padding-right: 0; }
+    #journey .projects .project-card { flex: 0 0 auto; width: min(100%, 360px); }
+    #journey .projects .project-controls { display: none; }
+}

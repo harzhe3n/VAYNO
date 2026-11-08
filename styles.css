@@ -3080,3 +3080,16 @@ html[dir="rtl"] :is(.services-link > span, .project-link, .case-study-visit) { b
 /* Words that sit straight on the bright world get a soft shadow to read by. */
 #journey .section-title, #journey .introduction h2 { text-shadow: 0 2px 30px rgba(2, 36, 24, .45); }
 #journey .eyebrow, #journey .services-link { text-shadow: 0 1px 10px rgba(2, 36, 24, .7); }
+
+/* ---- Phones and tablets: the same look with lighter effects ----
+   Blur filters, frosted glass and film grain cost a lot on a phone, so
+   touch screens skip them; the orb's light still turns and floats. */
+@media (hover: none), (pointer: coarse) {
+    .grain { display: none; }
+    .orb-flow { filter: none; }
+    .orb-reflection { filter: none; }
+    .navbar, .navbar.scrolled { background: rgba(255, 255, 255, .97); -webkit-backdrop-filter: none; backdrop-filter: none; }
+    .hero-link, .hero-kicker { -webkit-backdrop-filter: none; backdrop-filter: none; }
+    .hero-link, .hero-link:hover { background: linear-gradient(rgba(4, 40, 27, .62), rgba(4, 40, 27, .62)) padding-box, conic-gradient(from var(--spin), rgba(255, 255, 255, .4) 0deg 190deg, var(--mint) 250deg, #ffffff 278deg, var(--mint) 306deg, rgba(255, 255, 255, .4) 360deg) border-box; }
+    .dock-btn::after, .hero-orb::before { animation: none; }
+}

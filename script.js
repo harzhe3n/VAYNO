@@ -149,6 +149,8 @@
 
     const PANEL_LABELS = ["Home", "Projects", "Services", "About", "Contact"];
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    // Phones and tablets get a lighter version of the heavy effects.
+    const touchDevice = window.matchMedia("(hover: none), (pointer: coarse)").matches;
     const SLIDE_MS = 1100;
     // Shared by the slider and the reveal animations: when the slide that is
     // currently gliding in will land, so its content can time its entrance.
@@ -496,7 +498,7 @@
                 const dir = fromRight ? 1 : -1;
                 active = { outgoing, incoming };
                 outgoing.classList.add("is-leaving");
-                if (blur) [outgoing, incoming].forEach((panel) => { panel.style.filter = "url(#motion-blur)"; });
+                if (blur && !touchDevice) [outgoing, incoming].forEach((panel) => { panel.style.filter = "url(#motion-blur)"; });
                 const began = performance.now();
                 const step = (now) => {
                     const t = Math.min(1, (now - began) / SLIDE_MS);
@@ -2440,7 +2442,7 @@
         const cloudSprites = [cloudSprite(5), cloudSprite(8), cloudSprite(13)];
 
         const resize = () => {
-            ratio = Math.min(window.devicePixelRatio || 1, 1.5);
+            ratio = touchDevice ? 1 : Math.min(window.devicePixelRatio || 1, 1.5);
             width = window.innerWidth;
             height = window.innerHeight;
             const styles = getComputedStyle(document.documentElement);
@@ -2477,7 +2479,7 @@
                     alpha: low ? .78 : .94
                 };
             });
-            glints = Array.from({ length: Math.round(clamp(width / 30, 18, 60)) }, () => ({
+            glints = Array.from({ length: Math.round(clamp(width / (touchDevice ? 45 : 30), 12, 60)) }, () => ({
                 x: random(),
                 y: random(),
                 length: 14 + random() * 90,
@@ -2652,7 +2654,7 @@
             const top = Math.round(horizon * ratio);
             context.drawImage(scene, 0, 0, scene.width, top, 0, 0, scene.width, top);
             const depth = canvas.height - top;
-            const strip = Math.max(2, Math.round(2 * ratio));
+            const strip = Math.max(2, Math.round((touchDevice ? 4 : 2) * ratio));
             for (let row = 0; row < depth; row += strip) {
                 const source = top - row - strip;
                 if (source < 0) break;
@@ -2695,8 +2697,13 @@
             context.globalAlpha = 1;
         };
 
+        // On phones and tablets the world is drawn at most 30 times a second.
+        let lastDrawn = 0;
         const step = (now) => {
-            draw(now);
+            if (!touchDevice || now - lastDrawn > 30) {
+                lastDrawn = now;
+                draw(now);
+            }
             frame = window.requestAnimationFrame(step);
         };
         const start = () => {

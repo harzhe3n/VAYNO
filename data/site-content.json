@@ -1,0 +1,153 @@
+{
+  "projects": [
+    {
+      "name": "Shax Store",
+      "category": "E-commerce · Website development",
+      "imageUrl": "/assets/projects/shaxstore-logo.jpg",
+      "portfolioUrl": "https://shaxstore.fit/",
+      "tags": [
+        "E-commerce",
+        "Admin panel"
+      ],
+      "details": {
+        "summary": "A complete online shop for gym wear, built for Kurdistan. Shoppers browse categories, pick colours, see prices and reviews, and order through a cart, in Kurdish, Arabic or English. Behind it, the owner runs everything from an admin panel: products, categories, orders, stock and shipments, customer notifications and Telegram order alerts.",
+        "sections": [
+          {
+            "group": "site",
+            "title": "Storefront",
+            "text": "A bold home page with product search, light and dark themes, and Kurdish, Arabic and English versions. Customers can shop as guests or create an account.",
+            "image": "/assets/projects/shaxstore/storefront.jpg"
+          },
+          {
+            "group": "site",
+            "title": "Shop by category",
+            "text": "Products are grouped into categories, such as compression, oversize shirts, sweat pants and shorts. Each one has its own image and shows how many products it holds.",
+            "image": "/assets/projects/shaxstore/categories.jpg"
+          },
+          {
+            "group": "site",
+            "title": "Colours, prices and reviews",
+            "text": "Every product card shows its colour options, star rating and reviews, price and sale price, with one tap to add it to the cart. Shoppers can sort by best sellers, price or newest, and filter by brand.",
+            "image": "/assets/projects/shaxstore/product-cards.jpg"
+          },
+          {
+            "group": "admin",
+            "title": "Dashboard",
+            "text": "One screen for the whole business: revenue, profit and cost from delivered orders, order and customer counts, the latest orders, and stock alerts for products that have run out.",
+            "image": "/assets/projects/shaxstore/admin-dashboard.jpg"
+          },
+          {
+            "group": "admin",
+            "title": "Products",
+            "text": "Add, edit and remove products with their price, stock status, rating and badges such as New. Each product records which team member added it.",
+            "image": "/assets/projects/shaxstore/admin-products.jpg"
+          },
+          {
+            "group": "admin",
+            "title": "Categories in three languages",
+            "text": "Each category has an image and a name in English, Kurdish and Arabic, so the whole shop switches language cleanly. Extra filters, such as a brand, group products across categories.",
+            "image": "/assets/projects/shaxstore/admin-categories.jpg"
+          },
+          {
+            "group": "admin",
+            "title": "Orders",
+            "text": "Orders move from pending to processing, shipped and delivered, or cancelled. A team member can take an order to handle it, and every order can be opened in full.",
+            "image": "/assets/projects/shaxstore/admin-orders.jpg"
+          },
+          {
+            "group": "admin",
+            "title": "Stock and shipments",
+            "text": "Tracks each incoming shipment: units per size, product costs, delivery fees, and the profit expected if everything sells.",
+            "image": "/assets/projects/shaxstore/admin-storage.jpg"
+          },
+          {
+            "group": "admin",
+            "title": "Customer notifications",
+            "text": "Write a message, choose its type and who receives it (all customers, sponsors, admins or one person), and preview it before sending.",
+            "image": "/assets/projects/shaxstore/admin-notifications.jpg"
+          },
+          {
+            "group": "admin",
+            "title": "Telegram order alerts",
+            "text": "New orders and every change in an order's status are sent to the shop's Telegram automatically, with product photos.",
+            "image": "/assets/projects/shaxstore/admin-settings.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "name": "X Barber",
+      "category": "Booking system · Web app",
+      "imageUrl": "/assets/projects/xbarber-logo.jpg",
+      "portfolioUrl": "https://xbarber.duckdns.org/",
+      "tags": [
+        "Online booking",
+        "Admin panel"
+      ],
+      "details": {
+        "summary": "A booking system for a barbershop. Customers book a barber and a free time in seconds, with no account or password. Staff run the day from a cashier screen, and the owner manages barbers, services, products, working hours and earnings from the admin panel, in Kurdish, Arabic or English.",
+        "sections": [
+          {
+            "group": "site",
+            "title": "Booking website",
+            "text": "Customers see each barber, whether the shop is open now, and the next free time. Three short steps explain how booking works.",
+            "image": "/assets/projects/xbarber/booking-site.jpg"
+          },
+          {
+            "group": "site",
+            "title": "Pick a day and time",
+            "text": "Free times come straight from the shop and are always up to date; taken times can't be picked. After choosing a time, the customer only leaves a name and phone number.",
+            "image": "/assets/projects/xbarber/booking-time.jpg"
+          },
+          {
+            "group": "admin",
+            "title": "Cashier",
+            "text": "Each barber has a column of time slots. Staff add walk-in clients, start and finish each cut, add services, and see who is waiting, who is in the chair, and the money received today.",
+            "image": "/assets/projects/xbarber/admin-cashier.jpg"
+          },
+          {
+            "group": "admin",
+            "title": "Barbers",
+            "text": "Add barbers and their photos, give each one their own sign-in, and see their finished clients, waiting clients and earnings for the day.",
+            "image": "/assets/projects/xbarber/admin-barbers.jpg"
+          },
+          {
+            "group": "admin",
+            "title": "Shop settings",
+            "text": "Shop name, phone, address, Instagram and WhatsApp for the booking site; opening hours, time between clients for each barber, closed days, passwords and backups.",
+            "image": "/assets/projects/xbarber/admin-settings.jpg"
+          }
+        ]
+      }
+    }
+  ],
+  "team": [
+    {
+      "name": "Harzheen Hawzheen",
+      "role": "Founder & Developer",
+      "description": "Software engineering student building fast, secure full-stack web apps with AI-powered development, plus graphic design and video editing.",
+      "photoUrl": "/assets/team/harzheen-hawzheen-portrait.jpg",
+      "portfolioUrl": "https://harzhe3nn.vercel.app/"
+    },
+    {
+      "name": "Haryad Massud",
+      "role": "Developer",
+      "description": "Software engineering student and freelance developer and graphic designer, exploring technology and creativity one project at a time.",
+      "photoUrl": "",
+      "portfolioUrl": "https://h4ryad01.vercel.app/"
+    },
+    {
+      "name": "Land M. Hama-Ali",
+      "role": "Designer & Videographer",
+      "description": "Filmmaker and photographer in Erbil since 2022: automotive films, events and brand stories, plus graphic design, from the first idea to the final edit.",
+      "photoUrl": "/assets/team/land-hama-ali.jpg",
+      "portfolioUrl": "https://land-hamaali-testingweb.vercel.app/"
+    }
+  ],
+  "contact": {
+    "email": "",
+    "whatsappNumber": "",
+    "instagramUrl": "",
+    "tiktokUrl": ""
+  }
+}

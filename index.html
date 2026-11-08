@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en" class="is-loading">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b4431">
+    <link rel="icon" href="assets/vayno-mark.svg" type="image/svg+xml">
+    <meta name="description" content="VAYNO is an independent creative and digital agency rooted in Kurdistan, building thoughtful brands, websites, and software for what comes next.">
+    <title>VAYNO — Rooted in Kurdistan. Ready for What's Next.</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="i18n.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Shared paint for the VAYNO mark (silver and emerald halves of the V). -->
+    <svg class="svg-defs" aria-hidden="true" focusable="false">
+        <defs>
+            <linearGradient id="vm-silver" x1="0" y1="0" x2="47" y2="40" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#f4f4f1" />
+                <stop offset=".45" stop-color="#a9a9a6" />
+                <stop offset=".7" stop-color="#d6d6d2" />
+                <stop offset="1" stop-color="#8b8b88" />
+            </linearGradient>
+            <linearGradient id="vm-green" x1="99" y1="0" x2="47" y2="48" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#8fe39e" />
+                <stop offset=".5" stop-color="#4caf5e" />
+                <stop offset="1" stop-color="#2a8a42" />
+            </linearGradient>
+            <linearGradient id="vm-shine" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#fff" stop-opacity="0" />
+                <stop offset=".5" stop-color="#fff" stop-opacity=".85" />
+                <stop offset="1" stop-color="#fff" stop-opacity="0" />
+            </linearGradient>
+            <clipPath id="vm-clip">
+                <polygon points="0,0 15,0 47.5,32.5 40,40" />
+                <polygon points="84,0 99,0 50.5,48.5 43,41" />
+            </clipPath>
+            <!-- The hero orb: dark glass with liquid green light. -->
+            <radialGradient id="orb-body" cx=".36" cy=".3" r=".78">
+                <stop offset="0" stop-color="#1b3528" />
+                <stop offset=".45" stop-color="#06110b" />
+                <stop offset="1" stop-color="#010302" />
+            </radialGradient>
+            <linearGradient id="orb-liquid-a" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#0f6b3b" stop-opacity="0" />
+                <stop offset=".3" stop-color="#1ea45c" stop-opacity=".9" />
+                <stop offset=".55" stop-color="#b9ffd5" />
+                <stop offset=".72" stop-color="#34d382" stop-opacity=".95" />
+                <stop offset="1" stop-color="#0f6b3b" stop-opacity="0" />
+            </linearGradient>
+            <linearGradient id="orb-liquid-b" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#36d985" stop-opacity="0" />
+                <stop offset=".45" stop-color="#6af2a8" stop-opacity=".85" />
+                <stop offset=".6" stop-color="#c8ffdc" stop-opacity=".9" />
+                <stop offset="1" stop-color="#36d985" stop-opacity="0" />
+            </linearGradient>
+            <linearGradient id="orb-liquid-c" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#c8ffdc" stop-opacity="0" />
+                <stop offset=".5" stop-color="#a6ffc9" />
+                <stop offset="1" stop-color="#2fd47f" stop-opacity="0" />
+            </linearGradient>
+            <radialGradient id="orb-bounce">
+                <stop offset="0" stop-color="#7cf0ad" stop-opacity=".5" />
+                <stop offset="1" stop-color="#7cf0ad" stop-opacity="0" />
+            </radialGradient>
+            <linearGradient id="orb-rim" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity=".3" />
+                <stop offset=".45" stop-color="#ffffff" stop-opacity="0" />
+                <stop offset="1" stop-color="#8fe39e" stop-opacity=".35" />
+            </linearGradient>
+            <!-- Sideways blur for slides in motion; script.js sets its strength. -->
+            <filter id="motion-blur" x="-5%" y="0" width="110%" height="100%"><feGaussianBlur stdDeviation="0 0" /></filter>
+            <clipPath id="orb-clip"><circle cx="100" cy="100" r="99.5" /></clipPath>
+            <filter id="orb-soft" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="1.8" /></filter>
+        </defs>
+    </svg>
+
+    <!-- Loading screen: the two halves of the V arrive from opposite sides and lock together. -->
+    <div class="loader" id="loader" role="status" aria-label="Loading VAYNO" data-i18n-attr="aria-label:loader.aria">
+        <div class="loader-glow" aria-hidden="true"></div>
+        <div class="loader-stage" aria-hidden="true">
+            <svg class="loader-mark" viewBox="-2 -2 103 53" focusable="false">
+                <g class="lm-half lm-silver"><polygon points="0,0 15,0 47.5,32.5 40,40" fill="url(#vm-silver)" /></g>
+                <g class="lm-half lm-green"><polygon points="84,0 99,0 50.5,48.5 43,41" fill="url(#vm-green)" /></g>
+                <g clip-path="url(#vm-clip)"><rect class="lm-shine" x="-40" y="-6" width="26" height="64" fill="url(#vm-shine)" /></g>
+            </svg>
+            <span class="loader-ring"></span>
+            <p class="loader-word" lang="en" dir="ltr"><span>V</span><span>A</span><span>Y</span><span>N</span><span>O</span></p>
+            <p class="loader-tag" data-i18n="loader.tag">Rooted in Kurdistan</p>
+            <span class="loader-bar"><span></span></span>
+        </div>
+    </div>
+
+    <!-- Background: a bright green world of white architecture and still
+         water, drawn in script.js. It pans as the slides move and is shared
+         by every slide. -->
+    <div class="bg-stage" aria-hidden="true">
+        <canvas class="bg-world"></canvas>
+    </div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="site-shell">
+    <!-- Navigation -->
+    <nav class="navbar" aria-label="Main navigation" data-i18n-attr="aria-label:nav.aria">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a class="logo" href="#top" aria-label="VAYNO home" data-i18n-attr="aria-label:nav.home.aria">
+                    <svg class="vayno-mark nav-mark" viewBox="-2 -2 103 53" aria-hidden="true" focusable="false">
+                        <polygon class="mark-silver" points="0,0 15,0 47.5,32.5 40,40" fill="url(#vm-silver)" />
+                        <polygon class="mark-green" points="84,0 99,0 50.5,48.5 43,41" fill="url(#vm-green)" />
+                    </svg>
+                    <span class="nav-wordmark" aria-hidden="true" lang="en">VAYNO</span>
+                </a>
+                <span class="nav-counter" aria-hidden="true"><span class="nav-counter-num"><span>01</span></span><span class="nav-counter-total">/ 05</span></span>
+            </div>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="nav-menu" id="primary-navigation">
+                <li><a href="#top" data-i18n="nav.home">Home</a></li>
+                <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+                <li><a href="#services" data-i18n="nav.services">Services</a></li>
+                <li><a href="#team" data-i18n="nav.about">About us</a></li>
+                <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+            </ul>
+            <div class="lang-switch" role="group" aria-label="Language" data-i18n-attr="aria-label:lang.aria">
+                <button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button>
+                <button type="button" data-lang="ar" lang="ar" aria-pressed="false">عربي</button>
+                <button type="button" data-lang="ckb" lang="ckb" aria-pressed="false">کوردی</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Quick links on the edge of the screen. -->
+    <nav class="side-dock" aria-label="Quick links" data-i18n-attr="aria-label:dock.aria">
+        <a class="dock-btn" href="#projects"><svg class="dock-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M3.5 3.5h5v5h-5zM11.5 3.5h5v5h-5zM3.5 11.5h5v5h-5zM11.5 11.5h5v5h-5z" /></svg><span class="dock-label" data-i18n="dock.work">Our work</span></a>
+        <a class="dock-btn" href="#contact"><svg class="dock-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M3.5 5.5a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9l-3.5 3v-3h0a2 2 0 0 1-2-2z" /></svg><span class="dock-label" data-i18n="dock.contact">Contact us</span></a>
+    </nav>
+
+    <main class="horizontal-journey" id="journey" tabindex="0" aria-label="VAYNO home, projects, services, about, and contact" data-i18n-attr="aria-label:main.aria">
+      <div class="journey-track">
+      <section class="hero journey-panel" id="top" data-progress="01" aria-label="VAYNO, rooted in Kurdistan" data-i18n-attr="aria-label:hero.aria">
+        <div class="hero-content">
+            <p class="hero-kicker"><span class="status-dot" aria-hidden="true"></span><span data-i18n-html="hero.kicker">Independent creative &amp; digital agency <span></span> Kurdistan</span></p>
+            <h1 class="hero-title">
+                <span class="sr-only" data-i18n="hero.sr">VAYNO builds websites, web apps, online stores, software and brands.</span>
+                <span class="hero-type" aria-hidden="true"><span class="hero-type-part" data-part="before">We build</span><span class="hero-rotator"><span class="hero-word">websites</span><span class="hero-caret"></span></span><span class="hero-type-part" data-part="after"></span></span>
+            </h1>
+            <p class="hero-lede" data-i18n="hero.lede">Great ideas deserve a worthy form. We give yours purpose, precision and a place in the world.</p>
+            <div class="hero-actions">
+                <a class="hero-start" href="#contact"><span data-i18n="hero.start">Start a project</span> <svg class="arrow-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13m-5-5 5 5-5 5" /></svg></a>
+                <a class="hero-link" href="#projects"><span data-i18n="hero.cta">Explore our work</span> <svg class="arrow-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13m-5-5 5 5-5 5" /></svg></a>
+            </div>
+        </div>
+
+        <!-- The orb: a glossy dark sphere with liquid green light turning
+             inside, floating over the water with its reflection below.
+             Pressing it starts a project. -->
+        <div class="hero-stage">
+            <a class="hero-orb" href="#contact" aria-label="Activate your idea: start a project with VAYNO" data-i18n-attr="aria-label:hero.orb.aria">
+                <span class="orb-ball" aria-hidden="true"><svg class="orb-art" viewBox="0 0 200 200" focusable="false"><circle cx="100" cy="100" r="100" fill="url(#orb-body)" /><g clip-path="url(#orb-clip)"><g class="orb-flow orb-flow-a" filter="url(#orb-soft)"><path d="M6 82A96 96 0 0 0 128 193C92 184 46 160 26 122C18 107 10 94 6 82Z" fill="url(#orb-liquid-a)" /><path d="M24 128C52 104 86 136 118 118C140 106 160 108 180 122C160 120 142 126 122 138C88 156 54 132 24 128Z" fill="url(#orb-liquid-b)" /></g><g class="orb-flow orb-flow-b" filter="url(#orb-soft)"><path d="M125 6A95 95 0 0 1 196 116C184 76 160 34 125 6Z" fill="url(#orb-liquid-c)" /><path d="M196 96A96 96 0 0 1 146 186C170 160 188 132 196 96Z" fill="url(#orb-liquid-c)" opacity=".8" /></g><ellipse cx="100" cy="188" rx="66" ry="22" fill="url(#orb-bounce)" /></g><circle cx="100" cy="100" r="99.2" fill="none" stroke="url(#orb-rim)" stroke-width="1.2" /></svg><span class="orb-shine"></span></span>
+                <span class="orb-label" aria-hidden="true"><span class="orb-toggle"></span><span data-i18n="hero.orb">Activate your idea</span></span>
+            </a>
+            <span class="orb-reflection" aria-hidden="true"><span class="orb-ball"><svg class="orb-art" viewBox="0 0 200 200" focusable="false"><circle cx="100" cy="100" r="100" fill="url(#orb-body)" /><g clip-path="url(#orb-clip)"><g class="orb-flow orb-flow-a" filter="url(#orb-soft)"><path d="M6 82A96 96 0 0 0 128 193C92 184 46 160 26 122C18 107 10 94 6 82Z" fill="url(#orb-liquid-a)" /><path d="M24 128C52 104 86 136 118 118C140 106 160 108 180 122C160 120 142 126 122 138C88 156 54 132 24 128Z" fill="url(#orb-liquid-b)" /></g><g class="orb-flow orb-flow-b" filter="url(#orb-soft)"><path d="M125 6A95 95 0 0 1 196 116C184 76 160 34 125 6Z" fill="url(#orb-liquid-c)" /><path d="M196 96A96 96 0 0 1 146 186C170 160 188 132 196 96Z" fill="url(#orb-liquid-c)" opacity=".8" /></g><ellipse cx="100" cy="188" rx="66" ry="22" fill="url(#orb-bounce)" /></g><circle cx="100" cy="100" r="99.2" fill="none" stroke="url(#orb-rim)" stroke-width="1.2" /></svg><span class="orb-shine"></span></span></span>
+        </div>
+
+        <div class="scroll-cue" aria-hidden="true">
+            <span class="scroll-cue-mouse"><span class="scroll-cue-wheel"></span></span>
+            <span class="scroll-cue-swipe"><span></span></span>
+        </div>
+      </section>
+      <!-- Projects Section -->
+      <section class="projects journey-panel" id="projects" data-progress="02">
+        <div class="container">
+            <span class="eyebrow" data-i18n="projects.eyebrow">VAYNO / SELECTED WORK</span>
+            <h2 class="section-title" data-i18n="projects.title">Our Projects</h2>
+
+            <div class="project-track-viewport" id="projects-carousel" role="region" aria-label="VAYNO projects" tabindex="0" data-i18n-attr="aria-label:projects.aria">
+                <div class="project-track" aria-live="off"></div>
+            </div>
+            <div class="project-controls" aria-label="Project navigation" data-i18n-attr="aria-label:projects.controls" hidden>
+                <button class="project-control project-control-prev" type="button" aria-label="Previous projects" aria-controls="projects-carousel" data-i18n-attr="aria-label:projects.prev" disabled>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 5-7 7 7 7" /></svg>
+                </button>
+                <button class="project-control project-control-next" type="button" aria-label="Next projects" aria-controls="projects-carousel" data-i18n-attr="aria-label:projects.next" disabled>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 5 7 7-7 7" /></svg>
+                </button>
+            </div>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section class="services journey-panel" id="services" data-progress="03">
+        <div class="container">
+            <div class="services-heading">
+                <div>
+                    <span class="eyebrow" data-i18n="services.eyebrow">VAYNO / SERVICE NETWORK</span>
+                    <h2 class="section-title" data-i18n="services.title">Our Services</h2>
+                </div>
+                <p class="services-note"><a class="services-link" href="#contact"><span data-i18n="services.link">Not sure which one you need? Let’s talk</span> <svg class="arrow-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13m-5-5 5 5-5 5" /></svg></a></p>
+            </div>
+            <div class="service-deck" role="list" aria-label="VAYNO services" data-i18n-attr="aria-label:services.aria"></div>
+        </div>
+      </section>
+
+      <section class="journey-panel story-panel" id="team" data-progress="04" aria-label="About VAYNO" data-i18n-attr="aria-label:about.aria">
+       <!-- Introduction Section -->
+       <section class="introduction" id="about">
+        <div class="container">
+            <span class="eyebrow" data-i18n="about.eyebrow">A point of view, shaped by place</span>
+            <h2 data-i18n-html="about.title">Our roots are here.<br>Our ideas go everywhere.</h2>
+            <div class="brand-values-heading">
+                <span class="eyebrow" data-i18n="values.eyebrow">The VAYNO code / 05 values</span>
+            </div>
+            <div class="brand-values" aria-label="What VAYNO stands for" data-i18n-attr="aria-label:values.aria">
+                <article><span class="brand-value-letter" lang="en">V</span><div><h2 data-i18n="values.v.title">Vision</h2><p data-i18n="values.v.text">See possibility before it takes shape.</p></div></article>
+                <article><span class="brand-value-letter" lang="en">A</span><div><h2 data-i18n="values.a.title">Ambition</h2><p data-i18n="values.a.text">Think bigger. Make it real.</p></div></article>
+                <article><span class="brand-value-letter" lang="en">Y</span><div><h2 data-i18n="values.y.title">Youth</h2><p data-i18n="values.y.text">Fresh energy to question what is.</p></div></article>
+                <article><span class="brand-value-letter" lang="en">N</span><div><h2 data-i18n="values.n.title">New generation</h2><p data-i18n="values.n.text">Build for the world taking shape.</p></div></article>
+                <article><span class="brand-value-letter" lang="en">O</span><div><h2 data-i18n="values.o.title">Optimism</h2><p data-i18n="values.o.text">Believe in what we can create next.</p></div></article>
+            </div>
+        </div>
+       </section>
+
+       <!-- Team Section -->
+       <section class="team" id="about-team">
+        <div class="container">
+            <span class="eyebrow" data-i18n="team.eyebrow">A small team with a wide horizon</span>
+            <h2 class="section-title" data-i18n="team.title">About us</h2>
+
+            <div class="team-grid" aria-label="VAYNO team members" data-i18n-attr="aria-label:team.aria"></div>
+        </div>
+       </section>
+      </section>
+
+    <!-- Contact Section -->
+    <section class="contact journey-panel" id="contact" data-progress="05">
+        <!-- Decorative: three rings orbit the VAYNO mark beside the form on wide screens. -->
+        <div class="contact-orbit" aria-hidden="true">
+            <span class="orbit-ring orbit-ring-1"><i></i></span>
+            <span class="orbit-ring orbit-ring-2"><i></i></span>
+            <span class="orbit-ring orbit-ring-3"><i></i></span>
+            <svg class="orbit-mark" viewBox="-2 -2 103 53" focusable="false">
+                <polygon points="0,0 15,0 47.5,32.5 40,40" fill="url(#vm-silver)" />
+                <polygon points="84,0 99,0 50.5,48.5 43,41" fill="url(#vm-green)" />
+            </svg>
+        </div>
+        <div class="container">
+            <span class="eyebrow" data-i18n="contact.eyebrow">VAYNO / LET'S BUILD</span>
+            <h2 class="section-title" data-i18n="contact.title">Have an Idea? Let's Build It.</h2>
+
+            <div class="contact-methods">
+                <a href="#contact" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" id="whatsapp-link" hidden><span data-i18n="contact.whatsapp">WhatsApp</span> <svg class="arrow-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M6 5h9v9" /></svg></a>
+                <a href="#contact" class="email-btn" id="email-link" hidden><span data-i18n="contact.email">Email VAYNO</span> <svg class="arrow-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M6 5h9v9" /></svg></a>
+                <button type="button" class="copy-email" id="copy-email" data-i18n="contact.copy" hidden>Copy email</button>
+                <p class="copy-feedback" id="copy-feedback" aria-live="polite"></p>
+            </div>
+
+            <div class="project-inquiry">
+                <h3 data-i18n="form.heading">Start a Project</h3>
+                <form id="inquiryForm" novalidate>
+                    <div class="honeypot" aria-hidden="true">
+                        <label for="website">Leave this field empty</label>
+                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="name" data-i18n-html="form.name">Full name <span>*</span></label>
+                        <input type="text" id="name" name="name" maxlength="100" autocomplete="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" data-i18n-html="form.email">Email address <span>*</span></label>
+                        <input type="email" id="email" name="email" maxlength="254" autocomplete="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company" data-i18n="form.company">Company or organization</label>
+                        <input type="text" id="company" name="company" maxlength="120" autocomplete="organization">
+                    </div>
+                    <div class="form-group">
+                        <label for="projectType" data-i18n-html="form.type">Project type <span>*</span></label>
+                        <select id="projectType" name="projectType" required>
+                            <option value="" data-i18n="form.type.choose">Choose a project type</option>
+                            <option value="website" data-i18n="form.type.website">Website Development</option>
+                            <option value="software" data-i18n="form.type.software">Software Development</option>
+                            <option value="ai" data-i18n="form.type.ai">AI Development</option>
+                            <option value="uiux" data-i18n="form.type.uiux">UI/UX Design</option>
+                            <option value="graphic" data-i18n="form.type.graphic">Graphic Design</option>
+                            <option value="motion" data-i18n="form.type.motion">Motion Graphics</option>
+                            <option value="other" data-i18n="form.type.other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group form-group-wide">
+                        <label for="subject" data-i18n-html="form.subject">Subject <span>*</span></label>
+                        <input type="text" id="subject" name="subject" maxlength="160" required>
+                    </div>
+                    <div class="form-group form-group-wide">
+                        <label for="description" data-i18n-html="form.description">Tell us about the project <span>*</span></label>
+                        <textarea id="description" name="description" maxlength="5000" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="budget" data-i18n="form.budget">Budget range</label>
+                        <select id="budget" name="budget">
+                            <option value="" data-i18n="form.budget.choose">Budget Range</option>
+                            <option value="50-100" data-i18n="form.budget.1">$50 – $100</option>
+                            <option value="100-1000" data-i18n="form.budget.2">$100 – $1,000</option>
+                            <option value="1000+" data-i18n="form.budget.3">$1,000 and more</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMethod" data-i18n="form.method">Preferred contact method</label>
+                        <select id="contactMethod" name="contactMethod">
+                            <option value="" data-i18n="form.method.choose">Preferred Contact Method</option>
+                            <option value="whatsapp" data-i18n="form.method.whatsapp">WhatsApp</option>
+                            <option value="email" data-i18n="form.method.email">Email</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-btn"><span class="submit-label" data-i18n="form.submit">Send project inquiry</span> <svg class="arrow-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13m-5-5 5 5-5 5" /></svg></button>
+                </form>
+                <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
+            </div>
+        </div>
+    </section>
+      </div>
+    </main>
+
+    <!-- VAYNO guide: a small robot dressed in Kurdish clothes — a red-and-white
+         jamana, an olive shal u shapik suit, a striped pshtwen sash and white
+         klash shoes. Drawn facing right; script.js mirrors it to walk left. -->
+    <div class="hero-robot-stage" id="robot-companion">
+      <div class="robot-walker">
+        <div class="robot-figure">
+          <button class="robot-companion-trigger" type="button" aria-label="Open VAYNO project guide" data-i18n-attr="aria-label:robot.aria" aria-expanded="false" aria-controls="assistant-panel">
+            <svg class="hero-robot" viewBox="0 0 200 280" aria-hidden="true" focusable="false">
+              <defs>
+                <!-- Jamana check, sized to stay readable at ~120px wide. -->
+                <pattern id="rb-check" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45 100 50)">
+                  <rect width="9" height="9" fill="#c93a2b" />
+                  <path d="M0 .75H9M.75 0V9" stroke="#fcefe3" stroke-width="1.5" />
+                  <circle cx="5.25" cy="5.25" r="1" fill="#f3c9b8" />
+                </pattern>
+                <pattern id="rb-check-fold" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(20 100 50)">
+                  <rect width="9" height="9" fill="#ad2e1f" />
+                  <path d="M0 .75H9M.75 0V9" stroke="#f7e3d4" stroke-width="1.5" />
+                </pattern>
+                <linearGradient id="rb-cloth-shade" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#fff" stop-opacity=".2" />
+                  <stop offset=".5" stop-color="#fff" stop-opacity="0" />
+                  <stop offset="1" stop-color="#3b0a04" stop-opacity=".4" />
+                </linearGradient>
+                <linearGradient id="rb-shell" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#ffffff" />
+                  <stop offset=".55" stop-color="#eeebe1" />
+                  <stop offset="1" stop-color="#c9c3b1" />
+                </linearGradient>
+                <linearGradient id="rb-screen" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#20342b" />
+                  <stop offset="1" stop-color="#0a1411" />
+                </linearGradient>
+                <linearGradient id="rb-suit" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#9a984f" />
+                  <stop offset=".5" stop-color="#7b7941" />
+                  <stop offset="1" stop-color="#57562d" />
+                </linearGradient>
+                <!-- Pshtwen stripes: red, white, green, white, sun yellow. -->
+                <linearGradient id="rb-sash" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#d23f2d" />
+                  <stop offset=".27" stop-color="#d23f2d" />
+                  <stop offset=".27" stop-color="#f5ecd8" />
+                  <stop offset=".36" stop-color="#f5ecd8" />
+                  <stop offset=".36" stop-color="#2e8b4b" />
+                  <stop offset=".64" stop-color="#2e8b4b" />
+                  <stop offset=".64" stop-color="#f5ecd8" />
+                  <stop offset=".73" stop-color="#f5ecd8" />
+                  <stop offset=".73" stop-color="#f3b531" />
+                  <stop offset="1" stop-color="#f3b531" />
+                </linearGradient>
+                <linearGradient id="rb-sash-end" href="#rb-sash" x1="0" y1="0" x2="1" y2="0" />
+                <radialGradient id="rb-sun-glow">
+                  <stop offset="0" stop-color="#ffd257" stop-opacity=".85" />
+                  <stop offset="1" stop-color="#ffd257" stop-opacity="0" />
+                </radialGradient>
+              </defs>
+
+              <ellipse class="rb-shadow" cx="102" cy="269" rx="44" ry="6" />
+
+              <g class="rb-body">
+                <!-- Sharwal legs, tapering into klash shoes -->
+                <g class="rb-leg rb-leg-l">
+                  <path class="rb-trouser" d="M70 220Q63 240 76 254H94Q100 238 99 220Z" />
+                  <rect class="rb-ankle" x="75" y="250" width="20" height="7" rx="3.5" />
+                  <path class="rb-klash" d="M71 262Q71 254 82 254H92Q101 255 107 260Q105 266 94 266H78Q71 266 71 262Z" />
+                  <path class="rb-klash-stitch" d="M77 259.5H100" />
+                </g>
+                <g class="rb-leg rb-leg-r">
+                  <path class="rb-trouser" d="M101 220Q100 238 106 254H124Q137 240 130 220Z" />
+                  <rect class="rb-ankle" x="105" y="250" width="20" height="7" rx="3.5" />
+                  <path class="rb-klash" d="M103 262Q103 254 114 254H124Q133 255 139 260Q137 266 126 266H110Q103 266 103 262Z" />
+                  <path class="rb-klash-stitch" d="M109 259.5H132" />
+                </g>
+                <path class="rb-trouser" d="M61 202Q57 222 70 234H130Q143 222 139 202Q100 210 61 202Z" />
+                <path class="rb-pleat" d="M82 212Q85 222 81 231M100 213V230M118 212Q115 222 119 231" />
+
+                <g class="rb-upper">
+                  <path class="rb-neck" d="M89 130H111V148H89Z" />
+                  <!-- Shapik jacket over a cream kras shirt -->
+                  <path class="rb-jacket" d="M65 160Q65 146 82 144H118Q135 146 135 160L140 204Q100 211 60 204Z" />
+                  <path class="rb-shirt" d="M87 144 100 173 113 144Z" />
+                  <path class="rb-trim" d="M87 145 100 174 113 145M100 174V186" />
+                  <circle class="rb-button" cx="100" cy="154" r="1.3" />
+                  <circle class="rb-button" cx="100" cy="162" r="1.3" />
+                  <path class="rb-collar" d="M86 146Q100 153 114 146L113 138Q100 145 87 138Z" />
+                  <!-- The Kurdish sun on the chest is also the robot's power light -->
+                  <g class="rb-sun">
+                    <circle class="rb-sun-glow" cx="121" cy="166" r="13" />
+                    <circle class="rb-sun-rays" cx="121" cy="166" r="7.5" />
+                    <circle class="rb-sun-core" cx="121" cy="166" r="4.4" />
+                  </g>
+                  <!-- Pshtwen: the striped sash, knotted at the side -->
+                  <path class="rb-sash" d="M59 186Q100 179 141 186L142 205Q100 212 58 205Z" />
+                  <path class="rb-sash-fold" d="M61 192.5Q100 186 139 192.5M61 199Q100 192.5 140 199" />
+                  <g class="rb-sash-tail">
+                    <path class="rb-sash-end" d="M64 199Q60 212 58 227L66 228Q68 214 71 201Z" />
+                    <path class="rb-sash-end" d="M71 201Q72 213 73 225L80 223Q78 212 77 201Z" />
+                    <path class="rb-sash-fringe" d="M59 228v5M62.5 228.5v5M66 228.5v5M74 225.5v5M77.5 224.5v5" />
+                    <ellipse class="rb-sash-knot" cx="70" cy="197" rx="7.5" ry="6" />
+                  </g>
+
+                  <!-- Arms: shoulder → elbow → hand. The outline of each forearm
+                       is drawn under the sleeve fills so the elbow stays seamless. -->
+                  <g class="rb-arm rb-arm-l">
+                    <g class="rb-fore rb-fore-l"><path class="rb-sleeve-edge" d="M60 176 57.5 195" /></g>
+                    <path class="rb-sleeve-edge" d="M70 152 60 176" />
+                    <path class="rb-sleeve" d="M70 152 60 176" />
+                    <g class="rb-fore rb-fore-l">
+                      <path class="rb-sleeve" d="M60 176 57.5 195" />
+                      <path class="rb-cuff" d="M58 191 57.4 196" />
+                      <circle class="rb-hand" cx="57" cy="202" r="7" />
+                      <path class="rb-hand-line" d="M52 200Q57 197.5 62 200" />
+                    </g>
+                  </g>
+                  <g class="rb-arm rb-arm-r">
+                    <g class="rb-fore rb-fore-r"><path class="rb-sleeve-edge" d="M140 176 142.5 195" /></g>
+                    <path class="rb-sleeve-edge" d="M130 152 140 176" />
+                    <path class="rb-sleeve" d="M130 152 140 176" />
+                    <g class="rb-fore rb-fore-r">
+                      <path class="rb-sleeve" d="M140 176 142.5 195" />
+                      <path class="rb-cuff" d="M142 191 142.6 196" />
+                      <circle class="rb-hand" cx="143" cy="202" r="7" />
+                      <path class="rb-hand-line" d="M138 200Q143 197.5 148 200" />
+                    </g>
+                  </g>
+
+                  <g class="rb-head">
+                    <!-- Loose end of the jamana, hanging behind the ear -->
+                    <g class="rb-jamana-tail">
+                      <path class="rb-jm-cloth" d="M52 76C34 90 26 118 30 148 31 154 36 157 42 155L49 151C42 128 46 104 62 86Z" />
+                      <path class="rb-jm-shade" d="M52 76C34 90 26 118 30 148 31 154 36 157 42 155L49 151C42 128 46 104 62 86Z" />
+                      <path class="rb-jm-fringe" d="M31.5 152l-2 7M36 155.5l-1 7M41 156v7M46 153.5l1 6.5" />
+                    </g>
+                    <circle class="rb-ear" cx="50" cy="108" r="10.5" />
+                    <circle class="rb-ear" cx="151" cy="108" r="10.5" />
+                    <circle class="rb-ear-light" cx="50" cy="108" r="4.5" />
+                    <circle class="rb-ear-light" cx="151" cy="108" r="4.5" />
+                    <rect class="rb-shell" x="52" y="50" width="98" height="91" rx="36" />
+                    <rect class="rb-screen" x="63" y="82" width="77" height="50" rx="20" />
+                    <path class="rb-screen-glare" d="M70 98Q71 92 78 91" />
+                    <g class="rb-face">
+                      <g class="rb-eyes-open">
+                        <g class="rb-eye"><rect x="81" y="97" width="11.5" height="16.5" rx="5.75" /><circle class="rb-eye-spark" cx="89" cy="101" r="1.9" /></g>
+                        <g class="rb-eye"><rect x="112" y="97" width="11.5" height="16.5" rx="5.75" /><circle class="rb-eye-spark" cx="120" cy="101" r="1.9" /></g>
+                      </g>
+                      <path class="rb-eyes-happy" d="M80.5 108Q86.75 98.5 93 108M111.5 108Q117.75 98.5 124 108" />
+                      <ellipse class="rb-cheek" cx="74" cy="119" rx="5.5" ry="3" />
+                      <ellipse class="rb-cheek" cx="130" cy="119" rx="5.5" ry="3" />
+                      <path class="rb-mouth" d="M96.5 119.5Q102.25 125 108 119.5" />
+                      <ellipse class="rb-mouth-talk" cx="102.25" cy="121" rx="4.6" ry="3.2" />
+                    </g>
+                    <!-- Jamana: a chequered wrap with two folds, a brim on the
+                         forehead and a knot at the side. -->
+                    <g class="rb-jamana">
+                      <path class="rb-jm-cloth" d="M45 86C38 50 65 24 101 24S164 50 157 86Z" />
+                      <path class="rb-jm-shade" d="M45 86C38 50 65 24 101 24S164 50 157 86Z" />
+                      <path class="rb-jm-fold" d="M49 68C68 45 112 35 154 49L156 61C116 47 76 55 52 80Z" />
+                      <path class="rb-jm-fold" d="M62 41C83 29 119 27 143 37L139 47C115 38 88 39 66 51Z" />
+                      <path class="rb-jm-crease" d="M52 80C76 55 116 47 156 61M66 51C88 39 115 38 139 47" />
+                      <path class="rb-jm-brim" d="M43 81C72 71 130 71 159 81L157 93C129 85 73 85 45 93Z" />
+                      <path class="rb-jm-crease rb-jm-crease-soft" d="M45 87C74 78 128 78 157 87" />
+                      <path class="rb-jm-knot" d="M50 74C41 76 39 88 47 92 55 95 62 87 60 79 59 75 55 73 50 74Z" />
+                    </g>
+                    <path class="rb-antenna" d="M101 25V13" />
+                    <circle class="rb-antenna-bulb" cx="101" cy="9" r="5" />
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <span class="robot-hello" id="robot-hello" aria-hidden="true">Hi! Tap me and I'll help you.</span>
+
+    <aside class="assistant-panel" id="assistant-panel" role="dialog" aria-modal="false" aria-labelledby="assistant-title" aria-hidden="true" tabindex="-1" hidden>
+        <div class="assistant-panel-header">
+            <div>
+                <span class="eyebrow" data-i18n="guide.eyebrow">VAYNO / PROJECT GUIDE</span>
+                <h2 id="assistant-title" data-i18n="guide.title">What are you building?</h2>
+            </div>
+            <button class="assistant-close" type="button" aria-label="Close project guide" data-i18n-attr="aria-label:guide.close">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg>
+            </button>
+        </div>
+        <p class="assistant-intro" data-i18n="guide.intro">I can help you find the right VAYNO service and next step. For a tailored conversation, send a project note to our team.</p>
+        <div class="assistant-messages" id="assistant-messages" role="log" aria-live="polite" aria-relevant="additions">
+            <p class="assistant-message assistant-message-guide" data-i18n="guide.hello">Hi, I’m VAYNO’s project guide. What would you like to make?</p>
+        </div>
+        <div class="assistant-suggestions" aria-label="Suggested questions" data-i18n-attr="aria-label:guide.suggestions">
+            <button type="button" data-assistant-prompt="I need a website" data-i18n="guide.s1" data-i18n-attr="data-assistant-prompt:guide.s1.prompt">A website</button>
+            <button type="button" data-assistant-prompt="I want to build software" data-i18n="guide.s2" data-i18n-attr="data-assistant-prompt:guide.s2.prompt">Custom software</button>
+            <button type="button" data-assistant-prompt="I need help with AI" data-i18n="guide.s3" data-i18n-attr="data-assistant-prompt:guide.s3.prompt">An AI solution</button>
+            <button type="button" data-assistant-prompt="I need a brand identity" data-i18n="guide.s4" data-i18n-attr="data-assistant-prompt:guide.s4.prompt">A brand identity</button>
+        </div>
+        <form class="assistant-form" id="assistant-form">
+            <label class="sr-only" for="assistant-input" data-i18n="guide.label">Ask the VAYNO project guide</label>
+            <input id="assistant-input" name="message" type="text" maxlength="500" placeholder="Tell me what you're working on…" data-i18n-attr="placeholder:guide.placeholder" autocomplete="off" required>
+            <button type="submit" aria-label="Send message" data-i18n-attr="aria-label:guide.send">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" /></svg>
+            </button>
+        </form>
+        <p class="assistant-footnote" data-i18n-html="guide.footnote">For a personal response, <a href="#contact">talk to our team <span aria-hidden="true">→</span></a></p>
+    </aside>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a class="footer-wordmark" href="#top" aria-label="VAYNO home" data-i18n-attr="aria-label:nav.home.aria" lang="en"><svg class="vayno-mark" viewBox="-2 -2 103 53" aria-hidden="true" focusable="false"><polygon points="0,0 15,0 47.5,32.5 40,40" fill="url(#vm-silver)" /><polygon points="84,0 99,0 50.5,48.5 43,41" fill="url(#vm-green)" /></svg>VAYNO</a>
+                    <p data-i18n="footer.tagline">Rooted in Kurdistan. Ready for what's next.</p>
+                </div>
+                <nav class="footer-nav">
+                    <ul>
+                        <li><a href="#top" data-i18n="nav.home">Home</a></li>
+                        <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+                        <li><a href="#services" data-i18n="nav.services">Services</a></li>
+                        <li><a href="#team" data-i18n="nav.about">About us</a></li>
+                        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="footer-contact">
+                    <a id="footer-email">Email VAYNO</a>
+                    <div id="social-links" class="social-links" aria-label="Social media" data-i18n-attr="aria-label:footer.social"></div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> <span lang="en">VAYNO</span>. <span data-i18n="footer.rights">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+    </div>
+
+</body>
+</html>

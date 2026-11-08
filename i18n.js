@@ -78,6 +78,7 @@ window.VAYNO_I18N = {
             ckb: "بیرۆکەکەت چالاک بکە: پرۆژەکەت لەگەڵ VAYNO دەست پێبکە"
         },
         "hero.cta": { ar: "اكتشف أعمالنا", ckb: "کارەکانمان ببینە" },
+        "hint.slide": { ar: "اسحب إلى التالي", ckb: "بۆ دواتر ڕایبکێشە" },
 
         // ---- Quick links on the edge of the screen ----
         "dock.aria": { ar: "روابط سريعة", ckb: "بەستەرە خێراکان" },
@@ -444,17 +445,16 @@ window.VAYNO_I18N = {
         },
 
         // Team
-        "Developer": { ar: "مطوّر", ckb: "گەشەپێدەر" },
         "Freelance developer and graphic designer with more than two years of building. He brings code and visual design together, turning ideas into working software, graphics and digital content, and gets sharper with every project.": {
             ar: "مطوّر ومصمّم جرافيك مستقل بخبرة تزيد على سنتين في البناء. يجمع البرمجة بالتصميم البصري، فيحوّل الأفكار إلى برمجيات تعمل ورسومات ومحتوى رقمي، ويزداد إتقانًا مع كل مشروع.",
             ckb: "گەشەپێدەر و دیزاینەری گرافیکی سەربەخۆ بە زیاتر لە دوو ساڵ ئەزموون. کۆد و دیزاینی بینراو پێکەوە دەبەستێت و بیرۆکەکان دەکاتە سۆفتوێری کارا، گرافیک و ناوەڕۆکی دیجیتاڵ، و لەگەڵ هەر پرۆژەیەک شارەزاتر دەبێت."
         },
-        "Designer & Videographer": { ar: "مصمّم ومصوّر فيديو", ckb: "دیزاینەر و ڤیدیۆگرافەر" },
+        "Founder, Designer & Videographer": { ar: "مؤسس ومصمّم ومصوّر فيديو", ckb: "دامەزرێنەر، دیزاینەر و ڤیدیۆگرافەر" },
         "Filmmaker and photographer in Erbil since 2022. At an AMG Performance dealership he averaged four finished car videos a day, and he has led content for brands, events and schools, from the first idea to the final edit.": {
             ar: "صانع أفلام ومصوّر في أربيل منذ عام ٢٠٢٢. أنجز في وكالة AMG Performance أربعة فيديوهات سيارات مكتملة يوميًا في المتوسط، وقاد المحتوى لعلامات تجارية وفعاليات ومدارس، من الفكرة الأولى حتى المونتاج النهائي.",
             ckb: "فیلمساز و وێنەگرە لە هەولێر لە ساڵی ٢٠٢٢ەوە. لە نوێنەرایەتیی AMG Performance بە تێکڕا ڕۆژانە چوار ڤیدیۆی تەواوی ئۆتۆمبێلی ئامادە دەکرد، و ناوەڕۆکی بۆ براند و بۆنە و قوتابخانەکان بەڕێوە بردووە، لە یەکەم بیرۆکەوە تا مۆنتاژی کۆتایی."
         },
-        "Founder & Developer": { ar: "المؤسس والمطوّر", ckb: "دامەزرێنەر و گەشەپێدەر" },
+        "Founder & Developer": { ar: "مؤسس ومطوّر", ckb: "دامەزرێنەر و گەشەپێدەر" },
         "Founder and lead developer of Shax Store, with more than two years of shipping software. He leads products from idea to launch: fast, secure full-stack websites, AI workflows he engineers himself, and the design and video that give them their look.": {
             ar: "مؤسس Shax Store ومطوّرها الرئيسي، بخبرة تزيد على سنتين في إطلاق البرمجيات. يقود المنتجات من الفكرة إلى الإطلاق: مواقع متكاملة سريعة وآمنة، وسير عمل بالذكاء الاصطناعي يصمّمه بنفسه، والتصميم والفيديو اللذان يمنحانها هويتها.",
             ckb: "دامەزرێنەر و گەشەپێدەری سەرەکیی Shax Store، بە زیاتر لە دوو ساڵ ئەزموون لە دروستکردن و بڵاوکردنەوەی سۆفتوێر. بەرهەمەکان لە بیرۆکەوە تا بڵاوکردنەوە بەڕێوە دەبات: ماڵپەڕی فول-ستاکی خێرا و پارێزراو، ڕێگاکانی کاری زیرەکی دەستکرد کە خۆی دایاندەڕێژێت، و ئەو دیزاین و ڤیدیۆیەی ناسنامەیان پێدەبەخشێت."

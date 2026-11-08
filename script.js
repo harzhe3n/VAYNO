@@ -166,7 +166,7 @@
         [".brand-values-heading, .contact-methods, .project-inquiry", "up"],
         [".section-title, .introduction h2", "words"],
         [".hero-kicker, .hero-title, .hero-lede, .hero-actions, .eyebrow, .services-note, .project-controls", "up"],
-        [".scroll-cue, .contact-orbit", "fade"]
+        [".contact-orbit", "fade"]
     ];
 
     // Wraps each word in a span so headings can rise word by word. Nested
@@ -827,7 +827,7 @@
             const bubbleWidth = Math.min(232, width - 24);
             const bubbleTop = robotTop - bubbleHeight - 12;
             const controls = "a, button, input, select, textarea";
-            const blocked = (withBubble) => [...document.querySelectorAll(`.hero-content > *, .hero .scroll-cue, .hero-orb, .journey-panel:not(.hero) :is(${controls})`)].flatMap((element) => {
+            const blocked = (withBubble) => [...document.querySelectorAll(`.hero-content > *, .hero-orb, .journey-panel:not(.hero) :is(${controls})`)].flatMap((element) => {
                 const box = element.matches(controls) ? element.getBoundingClientRect() : textBox(element);
                 if (!box.width || box.right < 0 || box.left > width) return [];
                 const spans = [];
@@ -2860,6 +2860,40 @@
         });
     }
 
+    // ---- Slide hint ----
+    // A hand pops up under the hero's buttons and swipes toward the next
+    // slide: soon after the site opens, then every five seconds while the
+    // first slide shows, until the visitor has moved on once.
+    function initSlideHint() {
+        const hint = document.querySelector(".slide-hint");
+        const hero = document.querySelector(".hero");
+        if (!hint || !hero) return;
+        let timer = 0;
+        let learned = false;
+        const show = () => {
+            window.clearTimeout(timer);
+            if (learned) return;
+            const waiting = !hero.classList.contains("is-current")
+                || document.documentElement.classList.contains("is-loading")
+                || document.visibilityState === "hidden";
+            if (waiting) {
+                timer = window.setTimeout(show, 1000);
+                return;
+            }
+            hint.classList.remove("is-showing");
+            void hint.offsetWidth;
+            hint.classList.add("is-showing");
+            timer = window.setTimeout(show, 5000);
+        };
+        document.addEventListener("vayno:slide", (event) => {
+            if ((event.detail?.index ?? 0) === 0) return;
+            learned = true;
+            window.clearTimeout(timer);
+            hint.classList.remove("is-showing");
+        });
+        timer = window.setTimeout(show, 2400);
+    }
+
     // ---- Quick links ----
     // Two buttons on the edge of the screen. On the first slide they show
     // their labels; elsewhere they fold to icons and open on hover or focus.
@@ -2888,6 +2922,7 @@
         initHorizontalJourney();
         initHero();
         initDock();
+        initSlideHint();
         initCompanionAssistant();
         initScratchValues();
         initServices();

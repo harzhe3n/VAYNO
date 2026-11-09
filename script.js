@@ -286,19 +286,16 @@
             onReady();
             return;
         }
-        let quick = false;
-        try { quick = window.sessionStorage.getItem("vayno-intro") === "seen"; } catch { quick = false; }
-        if (quick) loader.classList.add("is-quick");
-        const minTime = reducedMotion.matches ? 350 : quick ? 1150 : 2900;
+        // The intro always plays in full, on every visit and every screen,
+        // and holds on the finished mark for a moment before it opens.
+        const minTime = reducedMotion.matches ? 1600 : 4300;
         const started = performance.now();
 
         const fontsReady = document.fonts ? document.fonts.ready.catch(() => {}) : Promise.resolve();
         const giveUp = new Promise((resolve) => window.setTimeout(resolve, 6500));
 
         Promise.race([fontsReady, giveUp]).then(() => {
-            loader.classList.add("is-ready");
             window.setTimeout(() => {
-                try { window.sessionStorage.setItem("vayno-intro", "seen"); } catch { /* private mode */ }
                 loader.classList.add("is-done");
                 open();
                 window.setTimeout(onReady, reducedMotion.matches ? 0 : 280);

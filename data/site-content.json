@@ -79,7 +79,7 @@
       "name": "X Barber",
       "category": "Booking system · Web app",
       "imageUrl": "/assets/projects/xbarber-logo.jpg",
-      "portfolioUrl": "https://xbarber.duckdns.org/",
+      "portfolioUrl": "https://xoshawi.com/",
       "tags": [
         "Online booking",
         "Admin panel"
@@ -91,13 +91,13 @@
             "group": "site",
             "title": "Booking website",
             "text": "Customers see each barber, whether the shop is open now, and the next free time. Three short steps explain how booking works.",
-            "image": "/assets/projects/xbarber/booking-site.jpg"
+            "image": "/assets/projects/xbarber/booking-site-xoshawi.jpg"
           },
           {
             "group": "site",
             "title": "Pick a day and time",
             "text": "Free times come straight from the shop and are always up to date; taken times can't be picked. After choosing a time, the customer only leaves a name and phone number.",
-            "image": "/assets/projects/xbarber/booking-time.jpg"
+            "image": "/assets/projects/xbarber/booking-time-xoshawi.jpg"
           },
           {
             "group": "admin",

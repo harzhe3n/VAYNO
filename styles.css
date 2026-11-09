@@ -1,7 +1,7 @@
 :root {
     color-scheme: dark;
-    --font-display: "Manrope", "Plus Jakarta Sans", sans-serif;
-    --font-body: "Plus Jakarta Sans", "Arial", sans-serif;
+    --font-display: "Bricolage Grotesque", "Instrument Sans", sans-serif;
+    --font-body: "Instrument Sans", "Arial", sans-serif;
     --font-mono: "DM Mono", monospace;
     font-family: var(--font-body);
     background: var(--ink);
@@ -748,7 +748,7 @@ section:not(.hero) { scroll-margin-top: 74px; }
     --muted: #9fae9f;
     --gold: #8fe39e;
     --line: rgba(143, 227, 158, .14);
-    --font-wordmark: "Manrope", "Plus Jakarta Sans", sans-serif;
+    --font-wordmark: "Manrope", "Instrument Sans", sans-serif;
 }
 .navbar, .navbar.scrolled {
     top: 16px;
@@ -2013,9 +2013,11 @@ html.is-switching-lang .site-shell { opacity: 0; }
 
 /* Arabic-script faces; Latin text (and VAYNO) keeps the brand fonts. */
 html[lang="ar"], html[lang="ckb"] {
-    --font-display: "Manrope", "Noto Kufi Arabic", sans-serif;
-    --font-body: "Plus Jakarta Sans", "Noto Sans Arabic", sans-serif;
-    --font-mono: "DM Mono", "Noto Sans Arabic", monospace;
+    --font-display: "Bricolage Grotesque", "Noto Kufi Arabic", sans-serif;
+    --font-body: "Instrument Sans", "Noto Sans Arabic", sans-serif;
+    /* Arabic script first: a monospace font would also set the spaces, and
+       its wide spaces leave big gaps between Arabic and Kurdish words. */
+    --font-mono: "Noto Sans Arabic", "DM Mono", monospace;
 }
 /* Arabic letters join, so spacing them apart breaks the words. */
 html[dir="rtl"] body *:not([lang="en"], [lang="en"] *) { letter-spacing: 0 !important; }
@@ -3165,3 +3167,10 @@ html[dir="rtl"] .slide-hand::before { right: 50%; left: auto; background: linear
     #journey .project-disc { width: min(100%, clamp(100px, 16svh, 210px)); }
     .projects.journey-panel .section-title { font-size: 28px; }
 }
+
+/* ---- English type: Bricolage Grotesque for headings, Instrument Sans for text ----
+   Bricolage is wider than the old face, so the big headings are set a
+   little looser and one step lighter. */
+.hero-title, #journey .section-title, #journey .introduction h2 { font-weight: 700; letter-spacing: -.03em; }
+#journey .project-card-copy h3, .member-card h3, .project-inquiry h3, .services.journey-panel .service-card-title,
+.assistant-panel-header h2, .case-study-header h2, .case-study-copy h4 { letter-spacing: -.015em; }
